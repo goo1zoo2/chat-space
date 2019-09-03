@@ -1,5 +1,5 @@
 # chat-space DB設計
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
@@ -20,7 +20,7 @@
 - belongs_to :user
 - belongs_to :groups
 
-## groups_userテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_id|integer|null: false, foreign_key: true|
@@ -37,7 +37,7 @@
 ### Association
 - has_many :user
 - has_many :tweets
-- has_many :through: :groups_user
+- has_many :through: :groups_users
 
 
 
