@@ -1,5 +1,5 @@
-# Pictweet DB設計
-## usersテーブル
+# chat-space DB設計
+## userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
@@ -18,7 +18,6 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
 - belongs_to :groups
 
 ## groups_userテーブル
@@ -28,17 +27,14 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to : group
 - belongs_to : groups
 
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
 |name|string|null: false|
 ### Association
-- belongs_to :group_user
 - has_many :user
 - has_many :tweets
 - has_many :through: :groups_user
