@@ -8,6 +8,7 @@
 ### Association
 - has_many :tweets
 - has_many :groups,through: :groups_users
+- has_many :groups_users
 
 ## tweetsテーブル
 |Column|Type|Options|
@@ -16,8 +17,8 @@
 |text|text||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to :groups
+- belong_to :users
+- belong_to :groups
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -25,8 +26,8 @@
 |group_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to : groups
+- belong_to :users
+- belong_to : groups
 
 
 ## groupsテーブル
@@ -36,7 +37,7 @@
 ### Association
 - has_many :users,through: :groups_users
 - has_many :tweets
-
+- has_many :groups_users
 
 
 
