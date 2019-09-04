@@ -16,9 +16,10 @@
 |image|text||
 |text|text||
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
-- belong_to :users
-- belong_to :groups
+- belongs_to :user
+- belongs_to :group
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -26,8 +27,8 @@
 |group_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 ### Association
-- belong_to :users
-- belong_to : groups
+- belongs_to :user
+- belongs_to : group
 
 
 ## groupsテーブル
