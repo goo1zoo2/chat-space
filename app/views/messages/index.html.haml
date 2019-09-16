@@ -1,7 +1,8 @@
+.notification
+  .notice
+
 .wrapper
-
-  = render 'shared/side_bar'
-
+  =render partial: "shared/side_bar"
   .chat
     .header
       .left-header
@@ -9,18 +10,19 @@
           = @group.name
         %ul.left-header__members
           Member：
-          - @group.users.each do |user|
-            %li.member
-              = user.name
-            
+          %li.member
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
       .right-header
-        .right-header__button
-          Edit
+        %a.right-header__button
+          = link_to edit_group_path(@group.id) do
+            Edit
     .messages
+      / このjsmessageっていらないかも
       = render @messages
     .form
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      = form_for [@group, @message], id: "new_message" do |f|
+        = f.text_field :content, class: 'form__message', id: 'new_message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
