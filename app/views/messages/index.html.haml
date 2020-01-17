@@ -18,7 +18,6 @@
           = link_to edit_group_path(@group.id) do
             Edit
     .messages
-      / このjsmessageっていらないかも
       = render @messages
     .form
       = form_for [@group, @message], id: "new_message" do |f|

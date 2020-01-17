@@ -1,0 +1,5 @@
+= form_tag('/users/search', method: :get) do
+-# ④変数inputに入ったuser-search-fieldが読まれる
+  %input.user-search-field{name: "keyword", placeholder: "メンバーを追加", type: "text", value: ""}/
+  %button.btn-search{name: "検索", type: "submit"}
+    

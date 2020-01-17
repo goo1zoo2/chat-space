@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
     else
-      render :new
+      render  :new
     end
   end
  
@@ -24,6 +24,9 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def edit
   end
  
   private
